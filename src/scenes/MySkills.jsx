@@ -162,7 +162,7 @@ const MySkills = () => {
                     >
                       <img
                         className="w-20 h-20"
-                        alt="react"
+                        alt={skills.skillName}
                         src={skills.logo}
                       />
                     </div>
