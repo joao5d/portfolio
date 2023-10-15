@@ -39,7 +39,9 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
         }
       }
 
-      setSelectedPage(currentSection);
+      if (currentSection !== selectedPage) {
+        setSelectedPage(currentSection);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -47,8 +49,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-
+  }, [setSelectedPage]);
 
   return (
     <nav className={`${navbarBackground} z-40 w-full fixed top-0 py-6`}>
