@@ -23,33 +23,33 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sectionOffsets = {
-        home: 0,
-        skills: document.getElementById("skills").offsetTop,
-        projects: document.getElementById("projects").offsetTop,
-        contact: document.getElementById("contact").offsetTop,
-      };
+        const sectionOffsets = {
+            home: 0,
+            skills: document.getElementById("skills").offsetTop,
+            projects: document.getElementById("projects").offsetTop,
+            contact: document.getElementById("contact").offsetTop,
+        };
 
-      const scrollPosition = window.scrollY;
-      let currentSection = "home";
+        const scrollPosition = window.scrollY;
+        let currentSection = "home";
 
-      for (const section in sectionOffsets) {
-        if (scrollPosition >= sectionOffsets[section]) {
-          currentSection = section;
+        for (const section in sectionOffsets) {
+            if (scrollPosition >= sectionOffsets[section]) {
+                currentSection = section;
+            }
         }
-      }
 
-      if (currentSection !== selectedPage) {
-        setSelectedPage(currentSection);
-      }
+        if (currentSection !== selectedPage) {
+            setSelectedPage(currentSection);
+        }
     };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("scroll", handleScroll);
     };
-  }, [setSelectedPage]);
+}, [selectedPage, setSelectedPage]);
 
   return (
     <nav className={`${navbarBackground} z-40 w-full fixed top-0 py-6`}>
